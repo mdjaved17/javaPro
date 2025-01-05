@@ -1,0 +1,72 @@
+const student=[
+  {
+    name:"sahil",
+    maths: 97,
+    science: 78,
+    English: 92 
+  },
+  {
+  name: "aman",
+  maths: 92,
+  science: 98,
+  English:81
+  },
+  {
+    name: "muskan",
+    maths: 81,
+    science: 75,
+    English:70
+  },
+  {
+    name: "priya",
+    maths: 78,
+    science:95,
+    English:89
+  }
+]
+
+function totalMarks(maths,science,English){
+  return maths+science+English;
+}
+function calcAvg(toatlMarks){
+  return toatlMarks/3;
+}
+function calculatePercentage(toatlMarks){
+  return (toatlMarks/300)*100;
+}
+function grade(percentage) {
+  if (percentage >= 90) {
+    return "A+";
+  } else if (percentage >= 80) {
+    return "A";
+  } else if (percentage >= 70) {
+    return "B+";
+  } else if (percentage >= 60) {
+    return "B";
+  } else if (percentage >= 33) {
+    return "C (Work Hard!!!)";
+  } else {
+    return "Fail";
+  }
+}
+
+function printReport(student){
+  for (let i=0; i<student.length;i++){
+  const stu=student[i];
+  const total=totalMarks(stu.maths,stu.science,stu.English);
+  const avgMarks=calcAvg(total);
+  const percentage=calculatePercentage(total)
+
+  console.log("Name: ",stu.name);
+  console.log("Marks");
+  console.log("Maths: ",stu.maths);
+  console.log("Science: ",stu.science);
+  console.log("English: ",stu.English);
+  console.log(`Total Marks: ${total}`);
+  console.log(`Average Marks: ${avgMarks.toFixed(2)}`);
+  console.log(`Percentage: ${percentage.toFixed(2)}%`);
+  console.log(`Grade:${grade(percentage)}`);
+  console.log("---------------------------------------------")
+}}
+
+printReport(student);
