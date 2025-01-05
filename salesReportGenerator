@@ -1,0 +1,50 @@
+const team = [
+  {
+    name: "Rahul",
+    actualSales: 200,
+    target: 100,
+  },
+  {
+    name: "Priya",
+    actualSales: 200,
+    target: 200,
+  },
+  {
+    name: "Amit",
+    actualSales: 200,
+    target: 150,
+  },
+];
+
+function calculatePercentage(actualSales, target) {
+  return (actualSales / target) * 100;
+}
+
+function calculatePerformance(actualSales, per) {
+  if (per >= 90) {
+    console.log("High performer!!!");
+    let bonus = `$ ${actualSales * 0.2}`;
+    console.log("Congrats you get the bonus: ", bonus);
+  } else if (per >= 70 && per <= 89) {
+    console.log("Average Performer !!");
+    bonus = `$ ${actualSales * 0.1}`;
+    console.log("Congrats you get the bonus: ", bonus);
+  } else {
+    console.log("Work Hard !");
+    console.log("Not eligible for bonus");
+  }
+}
+
+function printReport(team) {
+  for (let i = 0; i < team.length; i++) {
+    let per = calculatePercentage(team[i].actualSales, team[i].target);
+    console.log("Name: ", team[i].name);
+    console.log("Actual sale: ", team[i].actualSales);
+    console.log("Target: ", team[i].target);
+    console.log(`${per.toFixed(2)}%`);
+    calculatePerformance(team[i].actualSales, per);
+    console.log("-----------------------------------");
+  }
+}
+
+printReport(team);
